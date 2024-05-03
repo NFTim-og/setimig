@@ -20,8 +20,8 @@ function startGame(deck) {
     dealerSum += getValue(hidden);
     dealerMigCount += checkMig(hidden);
 
-    while (dealerSum < 7.5) {
-        //<img>
+
+    for (let i = 0; i < 1; i++) {
         let cardImg = document.createElement("img");
         let card = deck.pop();
         cardImg.src = "./baralla/" + card + ".jpg";
@@ -30,7 +30,7 @@ function startGame(deck) {
         document.getElementById("dealer-cards").append(cardImg);
     }
 
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 1; i++) {
         let cardImg = document.createElement("img");
         let card = deck.pop();
         cardImg.src = "./baralla/" + card + ".jpg";
@@ -51,10 +51,24 @@ function startGame(deck) {
     document.getElementById("stand").addEventListener("click", function() {
         stand(deck);
     });
+
+    document.getElementById("player-sum").innerText = playerSum;
 }
 
 function stand(deck) {
     canHit = false;
+
+    /*Allow the dealer to draw cards until their sum is greater than
+    or equal to the player's sum or until they reach 7.5*/
+    while (dealerSum < playerSum && dealerSum < 7.5) {
+        let card = deck.pop();
+        dealerSum += getValue(card);
+        dealerMigCount += checkMig(card);
+        let cardImg = document.createElement("img");
+        cardImg.src = "./baralla/" + card + ".jpg";
+        document.getElementById("dealer-cards").append(cardImg);
+    }
+    
     document.getElementById("hidden").src = "./baralla/" + hidden + ".jpg";
 
     let message = ""; // Initialize message variable
@@ -101,19 +115,14 @@ function hit(deck) {
         canHit = false;
     }
 
+    document.getElementById("player-sum").innerText = playerSum;
 }
 
 function getValue(card) {
     let data = card.split("_");
     let value = data[1];
 
-    if (value == "10") {
-        return 0.5;
-    }
-    if (value == "11") {
-        return 0.5;
-    }
-    if (value == "12") {
+    if (value == "10" || value == "11" || value == "12") {
         return 0.5;
     }
 
@@ -133,4 +142,3 @@ function checkMig(card) {
         return 0;
     }
 }
-
