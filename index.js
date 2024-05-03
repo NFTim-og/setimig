@@ -1,15 +1,18 @@
 let dealerSum = 0;
 let playerSum = 0;
 
+// eslint-disable-next-line no-unused-vars
 var dealerMigCount = 0;
 var playerMigCount = 0; //10, 11, 12
 
 var hidden;
+// eslint-disable-next-line no-unused-vars
 var deck;
 
 let canHit = true; //allows the player to draw while his/her sum is less than 7,5
 
 window.onload = function() {
+    // eslint-disable-next-line no-undef
     let myDeck = new Deck();
     myDeck.shuffleDeck();
     startGame(myDeck);
