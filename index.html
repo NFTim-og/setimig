@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set i mig</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="deck.js"></script>
+    <script src="index.js"></script>
+    <script src="card.js"></script>
+    <script src="player.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-title-container">
+            <h1>Set i mig</h1>
+        </div>
+    </header>
+    <main>
+        <h2>Dealer: <span id="dealer-sum"></span></h2>
+        <div id="dealer-cards">
+            <img id="hidden" src="./baralla/back.png">
+        </div>
+
+        <h2>Player: <span id="player-sum"></span></h2>
+        <div id="player-cards">
+            
+        </div>
+
+        <br>
+
+        <button id="hit">Carta</button>
+        <button id="stand">Plantar-se</button>
+        <p id="results"></p>
+    </main>
+</body>
+</html>

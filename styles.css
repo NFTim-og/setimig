@@ -1,0 +1,26 @@
+body {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+}
+
+#dealer-cards img {
+    width: 125px;
+    height: 175px;
+    margin: 1px;
+}
+
+#player-cards img {
+    width: 125px;
+    height: 175px;
+    margin: 1px;
+}
+
+#hit {
+    width: 100px;
+    height: 50px;
+}
+
+#stand {
+    width: 100px;
+    height: 50px;
+}
