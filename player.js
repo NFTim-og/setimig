@@ -1,11 +1,21 @@
 class Player {
     constructor(name) {
         this.name = name;
-        this.cards = new Deck();
+        this.cards = [];
         this.money = 0;
+        this.points = 0;
     }
 
     calculatePoints() {
-        // Implement points calculation algorithm here
+        let points = 0;
+
+        for (let i = 0; i < this.cards.length; i++) {
+            let card = this.cards[i];
+            points += card.getValue();
+        }
+
+        return points;
     }
 }
+
+export default Player;

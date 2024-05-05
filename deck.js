@@ -1,22 +1,20 @@
+import Card from './card.js';
+
 class Deck {
     constructor() {
         this.cards = [];
-        this.types = ["bastos", "copas", "espadas", "oros"];
-        this.values = ["1", "2", "3", "4", "5", "6", "7", "10", "11", "12"];
 
-        for (let type of this.types) {
-            for (let value of this.values) {
-                this.cards.push(type + "_" + value);
+        for (let suit = 0; suit < 4; suit++) {
+            for (let value = 0; value < 10; value++) {
+                this.cards.push(new Card(suit, value));
             }
         }
     }
 
-    shuffleDeck() {
-        for (let i = 0; i < this.cards.length; i++) {
-            let j = Math.floor(Math.random() * this.cards.length); //Random number
-            let temp = this.cards[i];
-            this.cards[i] = this.cards[j];
-            this.cards[j] = temp;
+    shuffle() {
+        for (let i = this.cards.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [this.cards[i], this.cards[j]] = [this.cards[j], this.cards[i]];
         }
     }
 
@@ -32,3 +30,5 @@ class Deck {
         return this.cards.join(', ');
     }
 }
+
+export default Deck;
