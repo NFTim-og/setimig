@@ -13,6 +13,7 @@ class Player {
             let card = this.cards[i];
             points += card.getValue();
         }
+        this.points = points;
 
         return points;
     }
